@@ -1,0 +1,10 @@
+In unix environments:
+
+1. Add "#!/usr/bin/env ruby" to top of file
+2. Change file attributes to make executable
+3. At prompt: ./<filename>
+
+In windows environments:
+
+1. At prompt: ruby <filename>
+
