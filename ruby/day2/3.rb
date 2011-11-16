@@ -18,7 +18,7 @@ File.open(filename, "r") do |file|
 		matchIndex = line.index(match)
 		if matchIndex != nil
 			# print the matching line
-			print "Line " + lineNumber.to_s() + ": " + line
+			print "Line #{lineNumber.to_s()}: #{line}"
 			
 			# print match indication underneath
 			(1..(7 + lineNumber.to_s().length + matchIndex)).to_a().each {|x| print " "}
