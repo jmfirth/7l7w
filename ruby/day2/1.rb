@@ -1,5 +1,6 @@
 #!/usr/bin/env ruby
 
-(1..16).to_a().each { |i| print i.to_s() + "\n" }
+ar = (0..15).to_a
+ar.each { |i| print ar[i,4].to_s + "\n" if (i%4 == 0) }
 
-(1..16).to_a().each_slice(1) { |i| print i.to_s() + "\n" }
+(0..15).to_a.each_slice(4) { |i| print i.to_s + "\n" }
