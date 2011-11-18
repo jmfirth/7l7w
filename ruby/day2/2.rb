@@ -1,21 +1,30 @@
 #!/usr/bin/env ruby
 
 class Tree
-	attr_accessor :children, :node_name
-	def initialize(name, children={})
-		@children = children
-		@node_name = name
+	attr_accessor :definition, :children, :node_name
+
+	def initialize(definition={})
+		@definition = definition
+		@node_name = @definition.keys[0]
+		@children = []
+		@definition[@node_name].each {|node| @children.push(Tree.new(Hash[[node]]))} if @definition[node_name] != nil
 	end
+
 	def visit_all(&block)
 		visit &block
 		children.each {|c| c.visit_all &block}
 	end
+
 	def visit(&block)
 		block.call self
 	end
+
+	def print
+		self.visit_all {|node| puts node.node_name}
+	end
 end
 
-ruby_tree = Tree.new("Ruby", {
+ruby_tree = Tree.new({
 	'grandpa' => { 
 		'dad' => {
 			'child 1' => {}, 
@@ -27,3 +36,8 @@ ruby_tree = Tree.new("Ruby", {
 		} 
 	}	
 });
+
+print "Object Dump:\n"
+p ruby_tree
+print "\n\nNode Names:\n"
+ruby_tree.print
