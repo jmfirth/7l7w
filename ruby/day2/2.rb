@@ -7,7 +7,7 @@ class Tree
 		@definition = definition
 		@node_name = @definition.keys[0]
 		@children = []
-		@definition[@node_name].each {|node| @children.push(Tree.new(Hash[[node]]))} if @definition[node_name] != nil
+		@definition[@node_name].each {|node| @children.push(Tree.new(Hash[[node]]))} if @definition[@node_name] != nil
 	end
 
 	def visit_all(&block)
